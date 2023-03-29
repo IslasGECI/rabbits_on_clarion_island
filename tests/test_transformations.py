@@ -1,4 +1,4 @@
-import dummy_transformations as dt
+import rabbit_clarion as dt
 
 
 def test_add_offset():
