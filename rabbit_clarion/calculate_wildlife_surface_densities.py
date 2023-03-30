@@ -7,13 +7,7 @@ def calculate_surface_densities_by_group(group, data_transects, transect_lenght 
     point_radius = 25
     transects = animal_group_data["Transecto"].unique()
     species = animal_group_data["Especie"].dropna().unique()
-    results_dic = {
-        "Transecto": [],
-        "Especie": [],
-        "Densidad": [],
-        "Distancia_max": [],
-        "Tipo_vegetacion": [],
-    }
+    results_dic = _init_results()
     for transect in transects:
         for specie in species:
             mask = (animal_group_data.Transecto == transect) & (animal_group_data.Especie == specie)
@@ -42,3 +36,12 @@ def check_array(array):
     if array.size == 0:
         return "NA"
     return array[0]
+
+def _init_results():
+    return {
+        "Transecto": [],
+        "Especie": [],
+        "Densidad": [],
+        "Distancia_max": [],
+        "Tipo_vegetacion": [],
+    }
