@@ -1,9 +1,8 @@
 import numpy as np
 
 
-def calculate_surface_densities_by_group(group, data_transects):
+def calculate_surface_densities_by_group(group, data_transects, transect_lenght = 300):
     animal_group_data = data_transects[data_transects["Grupo"] == group]
-    transect_lenght = 300
     transect_width = 10
     point_radius = 25
     transects = animal_group_data["Transecto"].unique()

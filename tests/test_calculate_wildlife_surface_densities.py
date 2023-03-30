@@ -30,7 +30,8 @@ def test_calculate_surface_densities_by_group():
     assert obtained == expected
 
     group = "Tecolote"
-    obtained = calculate_surface_densities_by_group(group, data_transects)
+    transect_lenght = 500
+    obtained = calculate_surface_densities_by_group(group, data_transects, transect_lenght)
     assert isinstance(obtained, dict)
     expected = read_expected_density("/workdir/tests/data/tecolote_density.json")
     assert obtained == expected
