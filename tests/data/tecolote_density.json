@@ -1,0 +1,41 @@
+{
+    "Transecto": [
+        "Tecolotes_01",
+        "Tecolotes_03",
+        "Tecolotes_08",
+        "Tecolotes_09",
+        "Tecolotes_13",
+        "Tecolotes_14"
+    ],
+    "Especie": [
+        "Athene cunicularia rostrata",
+        "Athene cunicularia rostrata",
+        "Athene cunicularia rostrata",
+        "Athene cunicularia rostrata",
+        "Athene cunicularia rostrata",
+        "Athene cunicularia rostrata"
+    ],
+    "Densidad": [
+        0.45454545454545453,
+        1.6666666666666665,
+        5.0,
+        2.0,
+        2.5,
+        1.0
+    ],
+    "Distancia_max": [
+        44.0,
+        6.0,
+        10.0,
+        5.0,
+        8.0,
+        10.0
+    ],
+    "Tipo_vegetacion": ["",
+        "karwinskia_scrub",
+        "brickelia_scrub",
+        "waltheria_scrub/tribulus_scrub/E_californica",
+        "karwinskia_scrub/brickelia_scrub/waltheria_scrub",
+        "brickelia_scrub"
+    ]
+}
