@@ -5,7 +5,7 @@ def calculate_surface_densities_by_group(group, data_transects, transect_lenght=
     parameters = Native_Group_Parameters(group, data_transects, transect_lenght)
     animal_group_data = parameters.animal_group_data
     TRANSECT_PARAMETERS = {
-        "lenght": parameters.lenght,
+        "length": parameters.length,
         "width": parameters.width,
         "point_radius": parameters.point_radius,
     }
@@ -25,7 +25,7 @@ def calculate_surface_densities_by_group(group, data_transects, transect_lenght=
 class Native_Group_Parameters:
     def __init__(self, group, data_transects, transect_lenght=300):
         self.group = group
-        self.lenght = transect_lenght
+        self.length = transect_lenght
         self.animal_group_data = data_transects[data_transects["Grupo"] == group]
         self.width = 10
         self.point_radius = 25
@@ -57,11 +57,11 @@ class Species_Transect_Density:
             )
         if self.group == "Tecolote":
             density_in_transect = n_individuals / (
-                self.TRANSECT_PARAMETERS["lenght"] * self.get_max_distance() * 2
+                self.TRANSECT_PARAMETERS["length"] * self.get_max_distance() * 2
             )
         if self.group == "Reptil":
             density_in_transect = n_individuals / (
-                self.TRANSECT_PARAMETERS["lenght"] * self.TRANSECT_PARAMETERS["width"] * 2
+                self.TRANSECT_PARAMETERS["length"] * self.TRANSECT_PARAMETERS["width"] * 2
             )
         density_in_transect_ha = density_in_transect * 10_000
         return density_in_transect_ha
