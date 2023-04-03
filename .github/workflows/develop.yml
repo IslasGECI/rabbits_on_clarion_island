@@ -26,10 +26,12 @@ jobs:
       run: docker push islasgeci/rabbit_clarion:latest
     - name: Sube sha a Docker Hub
       run: docker push islasgeci/rabbit_clarion:${GITHUB_SHA:0:4}
-  build-n-publish:
-    name: Build and publish Python 🐍 distributions 📦 to PyPI
-    runs-on: ubuntu-latest
-    steps:
+    - name: Create/Update tag
+      uses: rickstaa/action-create-tag@v1.5.4
+      with:
+        tag: "latest"
+        message: "Latest release"
+        force_push_tag: true
     - uses: actions/checkout@master
     - name: Set up Python 3.9
       uses: actions/setup-python@v1
