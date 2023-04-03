@@ -21,17 +21,17 @@ def test_calculate_surface_densities_by_group():
     obtained = calculate_surface_densities_by_group(group, data_transects)
     assert isinstance(obtained, dict)
     expected = read_expected_density("/workdir/tests/data/reptil_density.json")
-    assert obtained == expected
+    np.testing.assert_equal(obtained, expected)
 
     group = "Ave"
     obtained = calculate_surface_densities_by_group(group, data_transects)
     assert isinstance(obtained, dict)
     expected = read_expected_density("/workdir/tests/data/aves_density.json")
-    assert obtained == expected
+    np.testing.assert_equal(obtained, expected)
 
     group = "Tecolote"
     transect_lenght = 500
     obtained = calculate_surface_densities_by_group(group, data_transects, transect_lenght)
     assert isinstance(obtained, dict)
     expected = read_expected_density("/workdir/tests/data/tecolote_density.json")
-    assert obtained == expected
+    np.testing.assert_equal(obtained, expected)
