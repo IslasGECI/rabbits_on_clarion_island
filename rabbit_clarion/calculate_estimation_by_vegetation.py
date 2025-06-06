@@ -5,8 +5,8 @@ def separate_vegetations_enums(df):
     df = df.dropna(subset=["Tipo_vegetacion"])
     df = df.reset_index(drop=True).fillna(0)
     new_df = pd.DataFrame(columns=df.columns.values)
-    for i in range(len(df)):
-        new_df = split_vegetation_type(df, new_df, i)
+    for row_number in range(len(df)):
+        new_df = split_vegetation_type(df, new_df, row_number)
     return new_df.reset_index(drop=True)
 
 
