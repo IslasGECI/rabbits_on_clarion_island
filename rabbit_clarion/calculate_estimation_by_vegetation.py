@@ -11,9 +11,8 @@ def separate_vegetations_enums(df):
         if "/" in vegetation_type_string:
             vegetal_types = vegetation_type_string.split("/")
             for veg in vegetal_types:
-                temp = data_copy.copy(deep=True)
-                temp.iloc[0, temp.columns.get_loc("Tipo_vegetacion")] = veg
-                new_df = pd.concat([new_df, temp], ignore_index=True)
+                data_copy.at[i, "Tipo_vegetacion"] = veg
+                new_df = pd.concat([new_df, data_copy], ignore_index=True)
         else:
             new_df = pd.concat([new_df, data_copy], ignore_index=True)
     return new_df.reset_index(drop=True)
