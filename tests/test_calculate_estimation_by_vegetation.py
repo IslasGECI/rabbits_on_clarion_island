@@ -22,5 +22,5 @@ def test_get_data_densities():
     obtained = get_data_densities(data_path, data_areas_path)
     obtained_vegetation_types = set(obtained["Tipo_vegetacion"])
     data_areas = pd.read_csv(data_areas_path)
-    expected_vegetation_types = set(data_areas)
+    expected_vegetation_types = set(data_areas["Tipo_de_vegetacion"])
     assert obtained_vegetation_types == expected_vegetation_types
