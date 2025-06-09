@@ -25,12 +25,12 @@ def add_missing_vegetal_types(df, df_areas):
     data_copy = pd.DataFrame(
         data=[
             [
-                np.nan,
-                np.nan,
+                0,
+                0,
                 species,
-                np.nan,
+                0,
                 missing_types,
-                np.nan,
+                0,
             ]
         ],
         columns=columns,
