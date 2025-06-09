@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 def separate_vegetations_enums(df):
@@ -20,21 +21,19 @@ def add_missing_vegetal_types(df, df_areas):
     all_vegetal_types = df_areas.Tipo_de_vegetacion.unique()
     missing_types = list(set(all_vegetal_types) - set(vegetal_types))
     columns = df.columns
+    species = df.at[0, "Especie"]
     data_copy = pd.DataFrame(
         data=[
             [
-                "Conejos_02",
-                2.8787878787878785,
-                "Oryctolagus cuniculus",
-                23.0,
+                np.nan,
+                np.nan,
+                species,
+                np.nan,
                 missing_types,
-                2810.793899160166,
+                np.nan,
             ]
         ],
         columns=columns,
     )
-    print(data_copy)
     data_copy = data_copy.explode("Tipo_vegetacion").reset_index(drop=True)
-    print(data_copy)
-
-    return pd.concat([df, data_copy])
+    return pd.concat([df, data_copy]).reset_index(drop=True)
