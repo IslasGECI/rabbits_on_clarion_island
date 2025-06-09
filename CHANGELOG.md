@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [1.2.0] - 2025-06-09
+### Added
+- function `get_data_densities()`
+
 ## [1.1.0] - 2025-06-06
 ### Added
 - function `separate_vegetations_enums()`
