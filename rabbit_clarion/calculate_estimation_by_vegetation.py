@@ -19,12 +19,22 @@ def add_missing_vegetal_types(df, df_areas):
     vegetal_types = df.Tipo_vegetacion.unique()
     all_vegetal_types = df_areas.Tipo_de_vegetacion.unique()
     missing_types = list(set(all_vegetal_types) - set(vegetal_types))
-    data_copy = df.loc[0].copy(deep=True)
-    data_copy.Densidad = 0
-    data_copy.Estimacion = 0
-    print(missing_types)
-    for vegetal_type in missing_types:
-        data_copy.Tipo_vegetacion = vegetal_type
-        print(data_copy)
-        df = df._append(data_copy)
-    return df.reset_index(drop=True)
+    columns = df.columns
+    data_copy = pd.DataFrame(
+        data=[
+            [
+                "Conejos_02",
+                2.8787878787878785,
+                "Oryctolagus cuniculus",
+                23.0,
+                missing_types,
+                2810.793899160166,
+            ]
+        ],
+        columns=columns,
+    )
+    print(data_copy)
+    data_copy = data_copy.explode("Tipo_vegetacion").reset_index(drop=True)
+    print(data_copy)
+
+    return pd.concat([df, data_copy])
