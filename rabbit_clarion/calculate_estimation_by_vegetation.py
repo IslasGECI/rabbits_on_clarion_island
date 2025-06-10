@@ -34,5 +34,5 @@ def add_missing_vegetal_types(df, df_areas):
         ],
         columns=columns,
     )
-    data_copy = data_copy.explode("Tipo_vegetacion").reset_index(drop=True)
+    data_copy = data_copy.explode("Tipo_vegetacion")
     return pd.concat([df, data_copy]).reset_index(drop=True)
