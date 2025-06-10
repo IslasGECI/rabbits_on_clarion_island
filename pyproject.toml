@@ -13,3 +13,7 @@ requires = [
 		"pandas"
 ]
 requires-python=">=3.9"
+
+[tool.mutmut]
+paths_to_mutate = [ "rabbit_clarion/" ]
+tests_dir = [ "tests/" ]
