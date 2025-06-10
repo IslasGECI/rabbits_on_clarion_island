@@ -22,17 +22,10 @@ def add_missing_vegetal_types(df, df_areas):
     columns = df.columns
     species = df.at[0, "Especie"]
     data_copy = pd.DataFrame(
-        data=[
-            [
-                0,
-                0,
-                species,
-                0,
-                missing_types,
-                0,
-            ]
-        ],
         columns=columns,
     )
-    data_copy = data_copy.explode("Tipo_vegetacion")
+    data_copy.at[0, "Especie"] = species
+    data_copy.at[0, "Tipo_vegetacion"] = missing_types
+    data_copy = data_copy.explode("Tipo_vegetacion").fillna(0)
+    print(data_copy)
     return pd.concat([df, data_copy]).reset_index(drop=True)
