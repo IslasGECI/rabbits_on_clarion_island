@@ -2,10 +2,10 @@ import pandas as pd
 
 
 def separate_vegetations_enums(df):
-    df.dropna(subset=["Tipo_vegetacion"], inplace=True)
-    df.reset_index(drop=True).fillna(0, inplace=True)
-    df["Tipo_vegetacion"] = df["Tipo_vegetacion"].str.split("/")
-    return df.explode("Tipo_vegetacion").reset_index(drop=True)
+    df_without_na = df.dropna(subset=["Tipo_vegetacion"])
+    df_with_zeros = df_without_na.reset_index(drop=True).fillna(0)
+    df_with_zeros["Tipo_vegetacion"] = df_with_zeros["Tipo_vegetacion"].str.split("/")
+    return df_with_zeros.explode("Tipo_vegetacion").reset_index(drop=True)
 
 
 def get_data_densities(data_path, data_areas_path):
